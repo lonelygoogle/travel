@@ -68,14 +68,14 @@ export default {
     },
     computed: {
         pages () {
-            const pages= []
+            const pages = []
             this.iconList.forEach((item, index) => {
-                const page= Math.floor(index/8)
+                const page = Math.floor(index / 8)
                 if (!pages[page]) {
-                    pages[page]=[]
-                } 
+                    pages[page] = []
+                }
                 pages[page].push(item)
-            } )
+            })
             return pages
         }
     }
@@ -117,8 +117,4 @@ export default {
         text-align: center
         color: $darkTextColor
         ellipsis()
-
-
-
-
 </style>
