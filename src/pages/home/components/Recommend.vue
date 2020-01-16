@@ -2,9 +2,9 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList"
+      <li class="item border-bottom" v-for="item of list"
       :key="item.id"
-       >
+      >
         <img class="item-img" :src="item.imgUrl" alt="">
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -18,28 +18,11 @@
 <script>
 export default {
     name: 'HomeRecommend',
-    data () {
-      return {
-        recommendList: [{
-          id: '0001',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1902/51/51af1b5d0e1fa531a3.img.jpg_200x200_9852182a.jpg',
-          title: '云水谣土楼群',
-          desc: '幽长古道，百年老榕，神奇土楼，灵山碧水'
-        }, {
-          id: '0002',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1902/51/51af1b5d0e1fa531a3.img.jpg_200x200_9852182a.jpg',
-          title: '云水谣土楼群',
-          desc: '幽长古道，百年老榕，神奇土楼，灵山碧水'
-        }, {
-          id: '0003',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1902/51/51af1b5d0e1fa531a3.img.jpg_200x200_9852182a.jpg',
-          title: '云水谣土楼群',
-          desc: '幽长古道，百年老榕，神奇土楼，灵山碧水'
-        }
-      ]
-      }
+    props: {
+      list: Array
     }
 }
+
 </script>
 <style lang="stylus" scoped>
 @import '~styles/mixins.styl'

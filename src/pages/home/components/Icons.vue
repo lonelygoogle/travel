@@ -23,53 +23,17 @@ export default {
     data () {
         return {
             swiperOption: {
-                loop: true
-            },
-            iconList: [
-                {
-                    id: '0001',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-                    desc: '景点门票'
-                }, {
-                    id: '0002',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/81/92b4e30551e83b02.png',
-                    desc: '南靖土楼'
-                }, {
-                    id: '0003',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-                    desc: '漳州必游'
-                }, {
-                    id: '0004',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png',
-                    desc: '泡温泉'
-                }, {
-                    id: '0005',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-                    desc: '景点门票'
-                }, {
-                    id: '0006',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/81/92b4e30551e83b02.png',
-                    desc: '南靖土楼'
-                }, {
-                    id: '0007',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-                    desc: '漳州必游'
-                }, {
-                    id: '0008',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png',
-                    desc: '泡温泉'
-                }, {
-                    id: '0009',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-                    desc: '一日游'
-                }
-            ]
+                autoplay: false
+            }
         }
+    },
+    props: {
+        list: Array
     },
     computed: {
         pages () {
             const pages = []
-            this.iconList.forEach((item, index) => {
+            this.list.forEach((item, index) => {
                 const page = Math.floor(index / 8)
                 if (!pages[page]) {
                     pages[page] = []
@@ -77,7 +41,10 @@ export default {
                 pages[page].push(item)
             })
             return pages
-        }
+        },
+        showSwiper () {
+            return this.list.length
+      }
     }
 }
 </script>
