@@ -46,7 +46,10 @@ export default {
             res = res.data
             if (res.ret && res.data) {
                 const data = res.data
-                this.swiperList = data.swiperList
+                this.swiperList = []
+                this.$nextTick(() => {
+                    this.swiperList = data.swiperList
+                })
                 this.iconList = data.iconList
                 this.recommendList = data.recommendList
                 this.weekendList = data.weekendList
@@ -55,11 +58,13 @@ export default {
     },
     mounted () {
         this.lastCity = this.city
+        console.log(1)
         this.getHomeInfo()
     },
     activated () {
         if (this.lastCity !== this.city) {
             this.lastCity = this.city
+            console.log(2)
             this.getHomeInfo()
         }
     }

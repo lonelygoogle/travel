@@ -1,6 +1,6 @@
 <template>
     <div class="icons">
-        <swiper :options="swiperOption">
+        <swiper :options="swiperOption" v-if="pages.length > 0">
             <swiper-slide v-for="(page, index) of pages"
             :key="index"
             >
@@ -23,8 +23,10 @@ export default {
     data () {
         return {
             swiperOption: {
-                autoplay: false
-            }
+                autoplay: false,
+                loop: true
+            },
+            showSwiper: true
         }
     },
     props: {
@@ -41,10 +43,10 @@ export default {
                 pages[page].push(item)
             })
             return pages
-        },
-        showSwiper () {
+        }
+        /* showSwiper () {
             return this.list.length
-      }
+        } */
     }
 }
 </script>
